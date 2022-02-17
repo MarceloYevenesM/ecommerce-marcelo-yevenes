@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;1,100;1,200&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: gray;
+}
+
+li, a, button, label{
+    font-weight: 200;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+}
+
+.nameStore label{
+    vertical-align: text-top;
+    cursor:pointer; 
+}
+
+.logo {
+    vertical-align: middle;
+    width: 100px;
+    cursor:pointer;
+}
+
+.navLinks{
+    list-style: none;
+}
+
+.navLinks li{
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.navLinks li a:hover{
+    background-color: honeydew;
+    color: black;
+}
+
+button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
