@@ -1,0 +1,12 @@
+.carrito {
+    vertical-align: middle;
+    width: 50px;
+    cursor:pointer;
+}
+
+.cartWidget label {
+  vertical-align: text-top;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
