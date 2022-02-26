@@ -1,20 +1,36 @@
 import { useState } from "react";
+import "../itemCount.css";
 
 export const ItemCount = ({ name, initialAmount, totalStock }) => {
-
   const [quantity, setQuantity] = useState(initialAmount);
-  const [] = useState();
-
 
   return (
-    <div className="card">
-      <label>{name}</label>
+    <div className="card-count">
+      <label className="productName">{name}</label>
       <div>
-        <button onClick={() => setQuantity(quantity - 1)}>-</button>
-        <input value={quantity}></input>
-        <button onClick={() => setQuantity(quantity + 1)}>+</button>
+        <button
+          className="productQuantityButton"
+          onClick={() => {
+            if (quantity > 1) {
+              setQuantity(quantity - 1);
+            }
+          }}
+        >
+          -
+        </button>
+        <input className="productQuantityInput" value={quantity}></input>
+        <button
+          className="productQuantityButton"
+          onClick={() => {
+            if (quantity < totalStock) {
+              setQuantity(quantity + 1);
+            }
+          }}
+        >
+          +
+        </button>
       </div>
-      <button>Agregar al carrito</button>
+      <button className="addCart">Agregar al carrito</button>
     </div>
   );
 };
