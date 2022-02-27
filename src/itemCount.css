@@ -9,13 +9,6 @@
     border-radius: 0;
     height: 50px;
     border-radius: 10px;
-    
-}
-
-.card-count{
-    border: 1px solid #000;
-    border-radius: 10px;
-    width: 30%;
 }
 
 
@@ -29,3 +22,4 @@
 .addCart{
     margin-bottom: 10px;
 }
+

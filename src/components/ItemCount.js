@@ -1,12 +1,11 @@
 import { useState } from "react";
 import "../itemCount.css";
 
-export const ItemCount = ({ name, initialAmount, totalStock }) => {
+export const ItemCount = ({ initialAmount, totalStock }) => {
   const [quantity, setQuantity] = useState(initialAmount);
 
   return (
-    <div className="card-count">
-      <label className="productName">{name}</label>
+    <div>
       <div>
         <button
           className="productQuantityButton"
