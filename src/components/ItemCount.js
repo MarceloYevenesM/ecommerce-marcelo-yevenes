@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "../itemCount.css";
 
-export const ItemCount = ({ initialAmount, totalStock }) => {
+export const ItemCount = ({ initialAmount, totalStock, productId
+}) => {
   const [quantity, setQuantity] = useState(initialAmount);
 
   return (
@@ -29,7 +30,7 @@ export const ItemCount = ({ initialAmount, totalStock }) => {
           +
         </button>
       </div>
-      <button className="addCart">Agregar al carrito</button>
+      <button className="addCart" onClick={()=>console.log(productId)}>Agregar al carrito</button>
     </div>
   );
 };

@@ -1,54 +1,38 @@
-
+import { useEffect } from "react";
+import { useState } from "react/cjs/react.development";
+import result from "../helpers/getFetch";
 import { Item } from "./Item";
+import Loader from "./Loader";
 
 const ItemListContainer = ({ greeting }) => {
-  const products = [
-    {
-      id: 1,
-      name: "Agenda",
-      img: "https://bestbuyaccesorios.com/wp-content/uploads/2021/03/nuevos-3.jpg",
-      description: "Agenda de 100 hojas con diseño y temática de astronauta",
-      price:15000,
-      totalStock: "5",
-    },
-    {
-      id: 2,
-      name: "Lápiz",
-      img: "https://cdn.shopify.com/s/files/1/0267/6234/6595/products/WhatsAppImage2020-05-31at23.23.39_1800x.jpg?v=1590981902",
-      description: "Lapices con temática de universo",
-      price: 2000,
-      totalStock: "10",
-    },
-    {
-      id: 3,
-      name: "Lámpara",
-      img: "https://falabella.scene7.com/is/image/Falabella/13788018_1?wid=800&hei=800&qlt=70",
-      description: "Lámpara de luna con enchufe EU",
-      price: 25000,
-      totalStock: "8",
-    },
-    {
-      id: 4,
-      name: "Separador de páginas",
-      img: "https://http2.mlstatic.com/D_NQ_NP_864576-MLC45476163674_042021-O.jpg",
-      description: "Pack de separadores de página(25) con temánica de objetos del universo",
-      price: 5000,
-      totalStock: "15",
-    },
-  ];
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    result
+      .then((res) => {
+        setProducts(res);
+      })
+      .catch((res) => {
+        throw console.error(res);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <div>
       <h1>{greeting}</h1>
-      
-       
-      
-
-      {products.map((product) => (
-        <center>
-          <Item product={product} />
-        </center>
-      ))}
+      <center>
+        {loading ? (
+          <Loader />
+        ) : (
+          products.map((product, i) => (
+            <Item product={product} key={product.id} />
+          ))
+        )}
+      </center>
     </div>
   );
 };
