@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useState } from "react/cjs/react.development";
 import result from "../helpers/getFetch";
-import { Item } from "./Item";
+import ItemList from "./ItemList";
+
 import Loader from "./Loader";
 
 const ItemListContainer = ({ greeting }) => {
@@ -24,15 +25,7 @@ const ItemListContainer = ({ greeting }) => {
   return (
     <div>
       <h1>{greeting}</h1>
-      <center>
-        {loading ? (
-          <Loader />
-        ) : (
-          products.map((product, i) => (
-            <Item product={product} key={product.id} />
-          ))
-        )}
-      </center>
+      <center>{loading ? <Loader /> : <ItemList items={products} />}</center>
     </div>
   );
 };
