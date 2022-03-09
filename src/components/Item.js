@@ -1,4 +1,3 @@
-import { useState } from "react/cjs/react.development";
 import "../item.css";
 import { ItemCount } from "./ItemCount";
 
