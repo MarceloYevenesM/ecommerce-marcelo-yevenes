@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import result from "../helpers/getFetch";
 import ItemList from "./ItemList";
 
@@ -8,11 +8,16 @@ import Loader from "./Loader";
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { categoryId } = useParams();
 
   useEffect(() => {
     result
       .then((res) => {
-        setProducts(res);
+        if (categoryId) {
+          setProducts(res.filter((product) => product.category === categoryId));
+        } else {
+          setProducts(res);
+        }
       })
       .catch((res) => {
         throw console.error(res);
@@ -20,7 +25,7 @@ const ItemListContainer = ({ greeting }) => {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [categoryId]);
 
   return (
     <div>

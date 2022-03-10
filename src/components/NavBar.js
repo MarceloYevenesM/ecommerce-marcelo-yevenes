@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "../NavBar.css";
 import logo from "../orbita.png";
 import CartWidget from "./CartWidget";
@@ -5,31 +6,48 @@ import CartWidget from "./CartWidget";
 const NavBar = () => {
   return (
     <header>
-      <div className="nameStore">
-        <img className="logo" src={logo} alt="logo" />
-        <label>Papeleria Galaktika</label>
-      </div>
+      <NavLink to="/">
+        <div className="nameStore">
+          <img className="logo" src={logo} alt="logo" />
+          <label>Papeleria Galaktika</label>
+        </div>
+      </NavLink>
 
       <nav>
         <ul className="navLinks">
-          <li>
-            <a href="#">Inicio</a>
-          </li>
-          <li>
-            <a href="#">Agendas</a>
-          </li>
-          <li>
-            <a href="#">Lapices</a>
-          </li>
-          <li>
-            <a href="#">Plumas</a>
-          </li>
+          <NavLink to="/">
+            <li>
+              <label>Inicio</label>
+            </li>
+          </NavLink>
+          <NavLink to="category/agendas">
+            <li>
+              <label>Agendas</label>
+            </li>
+          </NavLink>
+          <NavLink to="category/lapices">
+            <li>
+              <label>Lapices</label>
+            </li>
+          </NavLink>
+          <NavLink to="category/plumas">
+            <li>
+              <label>Plumas</label>
+            </li>
+          </NavLink>
+          <NavLink to="category/otros">
+            <li>
+              <label>Otros</label>
+            </li>
+          </NavLink>
         </ul>
       </nav>
-      <a className="login" href="">
+      <NavLink to="/login">
         <button>Iniciar Sesión</button>
-      </a>
-      <CartWidget />
+      </NavLink>
+      <NavLink to="/cart">
+        <CartWidget />
+      </NavLink>
     </header>
   );
 };

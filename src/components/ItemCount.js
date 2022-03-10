@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../itemCount.css";
 
-export const ItemCount = ({ initialAmount, totalStock, productId, onAdd }) => {
+export const ItemCount = ({ initialAmount, totalStock, onAdd }) => {
   const [quantity, setQuantity] = useState(initialAmount);
 
   return (
@@ -32,9 +32,9 @@ export const ItemCount = ({ initialAmount, totalStock, productId, onAdd }) => {
       <button
         className="addCart"
         onClick={() => {
-          quantity <= totalStock? onAdd(quantity) : console.log('No hay stock');  
-          console.log({productId});
-
+          quantity <= totalStock
+            ? onAdd(quantity)
+            : console.log("No hay stock");
         }}
       >
         Agregar al carrito

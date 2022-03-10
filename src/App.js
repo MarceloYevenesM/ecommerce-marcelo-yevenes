@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer";
@@ -6,11 +7,27 @@ import NavBar from "./components/NavBar";
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <ItemListContainer greeting="Bienvenid@ a Papeleria Galaktika"/>
-      <ItemDetailContainer />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <NavBar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <ItemListContainer greeting="Bienvenid@ a Papeleria Galaktika" />
+            }
+          />
+          <Route
+            path="/category/:categoryId"
+            element={
+              <ItemListContainer greeting="Bienvenid@ a Papeleria Galaktika" />
+            }
+          />
+          <Route path="/item/:id" element={<ItemDetailContainer />} />
+          <Route path="/*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

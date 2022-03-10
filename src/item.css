@@ -9,3 +9,10 @@
     margin: 20px;
     width: 300px;
 }
+
+.link{
+    
+    border: none;
+    border-radius: 29px;
+    cursor: pointer;
+}
