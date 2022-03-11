@@ -1,58 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;1,100;1,200&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;1,100;1,200&display=swap");
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-   
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
-li, a, label{
-    font-weight: 200;
-    font-size: 20px;
-    color: white;
-    text-decoration: none;
-    background-color: gray;
+li,
+a,
+label {
+  font-weight: 200;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  background-color: gray;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px;
-    background-color: gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  background-color: gray;
 }
 
-.nameStore label{
-    vertical-align: text-top;
-    cursor:pointer; 
+.nameStore label {
+  vertical-align: text-top;
+  cursor: pointer;
 }
 
 .logo {
-    vertical-align: middle;
-    width: 100px;
-    cursor:pointer;
+  vertical-align: middle;
+  width: 100px;
+  cursor: pointer;
 }
 
-.navLinks{
-    list-style: none;
+.navLinks {
+  list-style: none;
 }
 
-.navLinks li{
-    display: inline-block;
-    padding: 0 20px;
+.navLinks li {
+  display: inline-block;
+  padding: 0 20px;
 }
 
-.navLinks li label:hover{
-    background-color: honeydew;
-    color: black;
+.navLinks li label:hover {
+  background-color: honeydew;
+  color: black;
 }
 
-button{
-    padding: 10px 15px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
+.name {
+  text-transform: capitalize;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
 }

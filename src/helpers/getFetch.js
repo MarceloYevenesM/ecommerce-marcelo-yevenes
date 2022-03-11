@@ -1,4 +1,4 @@
-export const products = [
+const products = [
   {
     id: "1",
     name: "Agenda",
@@ -38,15 +38,51 @@ export const products = [
   },
 ];
 
-const result = new Promise((resolve, reject) => {
+const category = [
+  {
+    category: "inicio",
+    url: "/",
+  },
+  {
+    category: "agendas",
+    url: "category/agendas",
+  },
+  {
+    category: "lapices",
+    url: "category/lapices",
+  },
+  {
+    category: "plumas",
+    url: "category/plumas",
+  },
+  {
+    category: "otros",
+    url: "category/otros",
+  },
+];
+
+export const result = new Promise((resolve, reject) => {
   const url = "www.api/productos.cl";
   if (url === "www.api/productos.cl") {
     setTimeout(() => {
       resolve(products);
     }, 2000);
   } else {
-    reject("404 not found");
+    reject("404 not found productos");
   }
 });
 
-export default result;
+export const resultCategory = new Promise((resolve, reject) => {
+  const url = "www.api/categorias.cl";
+  if (url === "www.api/categorias.cl") {
+    setTimeout(() => {
+      resolve(category);
+    }, 2000);
+  } else {
+    reject("404 not found categorias");
+  }
+});
+
+
+
+

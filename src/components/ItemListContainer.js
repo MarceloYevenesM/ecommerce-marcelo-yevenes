@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import result from "../helpers/getFetch";
+import { result } from "../helpers/getFetch";
 import ItemList from "./ItemList";
 
 import Loader from "./Loader";

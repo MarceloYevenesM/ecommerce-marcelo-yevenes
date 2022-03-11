@@ -10,7 +10,9 @@ export const ItemDetail = ({ product }) => {
   return (
     <div className="product-card">
       <h2>Detalle de {name}</h2>
-      <i>Categoria: {category}</i>
+      <p>
+        <i>Categoria: {category}</i>
+      </p>
       <img className="product-img" src={img} alt="img" />
       <p>{description}</p>
       <h3>${price}</h3>

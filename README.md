@@ -5,17 +5,7 @@ El proyecto consiste en el desarrollo de una tienda online sobre la temática de
 
 ## Dependencias
 
-Se incluyeron las dependencias vistas en clases las cuales fueron:
+Se incluyeron solo las dependencias vistas en clases.
 
-```sh
-cd dillinger
-npm i
-node app
-```
 
-Además de algunas dependencias como: 
-
-```sh
-npm install --production
-NODE_ENV=production node app
-```
+## Demostración

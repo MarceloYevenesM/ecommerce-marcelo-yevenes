@@ -1,9 +1,29 @@
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { resultCategory } from "../helpers/getFetch";
 import "../NavBar.css";
 import logo from "../orbita.png";
 import CartWidget from "./CartWidget";
+import ItemListNavBar from "./ItemListNavBar";
+import Loader from "./Loader";
 
 const NavBar = () => {
+  const [categorys, setCategorys] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    resultCategory
+      .then((res) => {
+        setCategorys(res);
+      })
+      .catch((res) => {
+        throw console.error(res);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <header>
       <NavLink to="/">
@@ -14,33 +34,9 @@ const NavBar = () => {
       </NavLink>
 
       <nav>
-        <ul className="navLinks">
-          <NavLink to="/">
-            <li>
-              <label>Inicio</label>
-            </li>
-          </NavLink>
-          <NavLink to="category/agendas">
-            <li>
-              <label>Agendas</label>
-            </li>
-          </NavLink>
-          <NavLink to="category/lapices">
-            <li>
-              <label>Lapices</label>
-            </li>
-          </NavLink>
-          <NavLink to="category/plumas">
-            <li>
-              <label>Plumas</label>
-            </li>
-          </NavLink>
-          <NavLink to="category/otros">
-            <li>
-              <label>Otros</label>
-            </li>
-          </NavLink>
-        </ul>
+        <center>
+          {loading ? <Loader /> : <ItemListNavBar categorys={categorys} />}
+        </center>
       </nav>
       <NavLink to="/login">
         <button>Iniciar Sesión</button>
