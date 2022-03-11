@@ -19,3 +19,6 @@ Además de algunas dependencias como:
 npm install --production
 NODE_ENV=production node app
 ```
+
+
+![navegacion](https://user-images.githubusercontent.com/93208325/157936308-b7654078-56db-4a29-acbb-32e04fa674de.gif)
