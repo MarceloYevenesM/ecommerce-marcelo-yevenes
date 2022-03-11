@@ -17,7 +17,11 @@ export const ItemCount = ({ initialAmount, totalStock, onAdd }) => {
         >
           -
         </button>
-        <input className="productQuantityInput" value={quantity}></input>
+        <input
+          className="productQuantityInput"
+          value={quantity}
+          onChange={setQuantity}
+        ></input>
         <button
           className="productQuantityButton"
           onClick={() => {
