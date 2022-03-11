@@ -8,6 +8,6 @@ El proyecto consiste en el desarrollo de una tienda online sobre la temática de
 Se incluyeron solo las dependencias vistas en clases.
 
 
-## Demostración
+## Demostraciónd
 
 ![navegacion](https://user-images.githubusercontent.com/93208325/157936308-b7654078-56db-4a29-acbb-32e04fa674de.gif)
