@@ -1,10 +1,17 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import "../item.css";
 import { ItemCount } from "./ItemCount";
 
 export const ItemDetail = ({ product }) => {
   const { name, img, description, price, totalStock, id, category } = product;
+  const [showStockOptions, setShowStockOptions] = useState(true);
+
   const onAdd = (selectedAmount) => {
-    console.log("Cantidad:", selectedAmount);
+    if (showStockOptions) {
+      console.log("Cantidad:", selectedAmount);
+      setShowStockOptions(false);
+    }
   };
 
   return (
@@ -17,12 +24,18 @@ export const ItemDetail = ({ product }) => {
       <p>{description}</p>
       <h3>${price}</h3>
       <p>Stock disponible: {totalStock}</p>
-      <ItemCount
-        initialAmount={1}
-        totalStock={totalStock}
-        productId={id}
-        onAdd={onAdd}
-      />
+      {showStockOptions ? (
+        <ItemCount
+          initialAmount={1}
+          totalStock={totalStock}
+          productId={id}
+          onAdd={onAdd}
+        />
+      ) : (
+        <Link to="/cart" className="link">
+          <button className="addCart">Finalizar compra</button>
+        </Link>
+      )}
     </div>
   );
 };
