@@ -32,8 +32,9 @@ header {
 
 .logo {
   vertical-align: middle;
-  width: 100px;
+  width: 200px;
   cursor: pointer;
+  margin-right: 4px;
 }
 
 .navLinks {

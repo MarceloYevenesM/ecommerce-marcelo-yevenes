@@ -5,7 +5,7 @@ import ItemListNavBar from "./ItemListNavBar";
 import Loader from "./Loader";
 import { resultCategory } from "../helpers/getFetch";
 import "../styles/NavBar.css";
-import logo from "../assets/orbita.png";
+import logo from "../assets/galaktika-logo.png";
 
 const NavBar = () => {
   const [categorys, setCategorys] = useState([]);
@@ -29,7 +29,6 @@ const NavBar = () => {
       <NavLink to="/">
         <div className="nameStore">
           <img className="logo" src={logo} alt="logo" />
-          <label>Papeleria Galaktika</label>
         </div>
       </NavLink>
 
