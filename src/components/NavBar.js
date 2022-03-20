@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { resultCategory } from "../helpers/getFetch";
-import "../styles/NavBar.css";
-import logo from "../assets/orbita.png";
 import CartWidget from "./CartWidget";
 import ItemListNavBar from "./ItemListNavBar";
 import Loader from "./Loader";
+import { resultCategory } from "../helpers/getFetch";
+import "../styles/NavBar.css";
+import logo from "../assets/orbita.png";
 
 const NavBar = () => {
   const [categorys, setCategorys] = useState([]);
