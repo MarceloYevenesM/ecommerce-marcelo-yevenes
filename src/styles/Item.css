@@ -1,18 +1,25 @@
-.product-card{
-    margin: 20px;
-    width: 30%;
-    border: 1px solid #000;
-    padding: 10px;
+.product-card {
+  margin: 20px;
+  width: 30%;
+  border: 1px solid #000;
+  padding: 10px;
 }
 
-.product-img{
-    margin: 20px;
-    width: 300px;
+.product-img {
+  margin: 20px;
+  width: 300px;
 }
 
-.link{
-    
-    border: none;
-    border-radius: 29px;
-    cursor: pointer;
+.link {
+  border: none;
+  border-radius: 29px;
+  cursor: pointer;
+}
+
+.alertify-notifier .ajs-message.ajs-error {
+  color: white;
+}
+
+.alertify-notifier .ajs-message.ajs-success {
+  color: white;
 }

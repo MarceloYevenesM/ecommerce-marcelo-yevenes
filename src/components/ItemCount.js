@@ -1,3 +1,5 @@
+import alertify from "alertifyjs";
+import 'alertifyjs/build/css/alertify.css';
 import { useState } from "react";
 import "../styles/ItemCount.css";
 
@@ -38,7 +40,7 @@ export const ItemCount = ({ initialAmount, totalStock, onAdd }) => {
         onClick={() => {
           quantity <= totalStock
             ? onAdd(quantity)
-            : console.log("No hay stock");
+            : alertify.error('No hay stock')
         }}
       >
         Agregar al carrito

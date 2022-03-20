@@ -2,14 +2,16 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ItemCount } from "./ItemCount";
 import "../styles/Item.css";
+import { useCartContext } from "../context/cartContext";
 
 export const ItemDetail = ({ product }) => {
   const { name, img, description, price, totalStock, id, category } = product;
   const [showStockOptions, setShowStockOptions] = useState(true);
+  const { addItem } = useCartContext();
 
   const onAdd = (selectedAmount) => {
     if (showStockOptions) {
-      console.log("Cantidad:", selectedAmount);
+      addItem(product, selectedAmount);
       setShowStockOptions(false);
     }
   };
