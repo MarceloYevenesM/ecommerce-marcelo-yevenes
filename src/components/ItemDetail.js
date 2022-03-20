@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "../item.css";
+import "../styles/Item.css";
 import { ItemCount } from "./ItemCount";
 
 export const ItemDetail = ({ product }) => {

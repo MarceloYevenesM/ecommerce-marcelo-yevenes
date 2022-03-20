@@ -1,5 +1,5 @@
 import { Item } from "./Item";
-import "../itemList.css";
+import "../styles/ItemList.css";
 
 const ItemList = ({ items }) => {
   return items.length !== 0 ? (

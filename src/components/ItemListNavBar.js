@@ -1,4 +1,4 @@
-import "../NavBar.css";
+import "../styles/NavBar.css";
 import ItemNavBar from "./ItemNavBar";
 
 const ItemListNavBar = ({ categorys }) => {

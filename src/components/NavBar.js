@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { resultCategory } from "../helpers/getFetch";
-import "../NavBar.css";
-import logo from "../orbita.png";
+import "../styles/NavBar.css";
+import logo from "../assets/orbita.png";
 import CartWidget from "./CartWidget";
 import ItemListNavBar from "./ItemListNavBar";
 import Loader from "./Loader";
