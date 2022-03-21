@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCartContext } from "../context/cartContext";
 import ItemCart from "./ItemCart";
 import "../styles/CartItem.css";
@@ -12,7 +13,12 @@ const CartContainer = () => {
       {cartList.length > 0 ? (
         cartList.map((item) => <ItemCart item={item} key={item.id} />)
       ) : (
-        <h2>No hay productos en el carrito</h2>
+        <center>
+          <h2>No hay productos en el carrito</h2>
+          <Link to="/" className="link">
+            <button>Ir a la Tienda</button>
+          </Link>
+        </center>
       )}
       <div className="clean deleteAll">
         <button
