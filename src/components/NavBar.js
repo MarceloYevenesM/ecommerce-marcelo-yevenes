@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { collection, getDocs, getFirestore, orderBy } from "firebase/firestore";
 import CartWidget from "./CartWidget";
 import ItemListNavBar from "./ItemListNavBar";
 import Loader from "./Loader";
-import { resultCategory } from "../helpers/getFetch";
+
 import "../styles/NavBar.css";
 import logo from "../assets/galaktika-logo.png";
 
@@ -12,10 +13,18 @@ const NavBar = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    resultCategory
-      .then((res) => {
-        setCategorys(res);
-      })
+    const db = getFirestore();
+    const queryColection = collection(db, "category");
+
+    getDocs(queryColection)
+      .then((resp) =>
+        setCategorys(
+          resp.docs.map((category) => ({
+            id: category.id,
+            ...category.data(),
+          }))
+        )
+      )
       .catch((res) => {
         throw console.error(res);
       })
