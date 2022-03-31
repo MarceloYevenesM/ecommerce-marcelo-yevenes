@@ -41,7 +41,7 @@ const CartContextProvider = ({ children }) => {
 
   const clear = () => {
     setCartList([]);
-    alertify.success("Elementos eliminados correctamente");
+   
   };
 
   const isInCart = (itemId) => {
@@ -57,6 +57,17 @@ const CartContextProvider = ({ children }) => {
       return total;
   };
 
+  const totalPrice = ()=>{
+    let total = 0; 
+    cartList.forEach((item)=>{
+      total = total + item.price * item.productQuantity;
+    });
+
+    return total;
+  }
+
+ 
+
   return (
     <cartContex.Provider
       value={{
@@ -66,6 +77,7 @@ const CartContextProvider = ({ children }) => {
         clear,
         removeitem,
         itemsInTheCart,
+        totalPrice,
       }}
     >
       {children}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { collection, getDocs, getFirestore, orderBy } from "firebase/firestore";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 import CartWidget from "./CartWidget";
 import ItemListNavBar from "./ItemListNavBar";
 import Loader from "./Loader";
