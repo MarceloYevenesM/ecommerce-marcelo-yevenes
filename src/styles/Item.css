@@ -13,7 +13,6 @@
 .link {
   border: none;
   border-radius: 29px;
-  cursor: pointer;
 }
 
 .alertify-notifier .ajs-message.ajs-error {
@@ -22,4 +21,8 @@
 
 .alertify-notifier .ajs-message.ajs-success {
   color: white;
+}
+
+.marginCard{
+  margin: 50px;
 }

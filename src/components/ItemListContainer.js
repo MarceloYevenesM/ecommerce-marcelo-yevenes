@@ -63,7 +63,16 @@ const ItemListContainer = ({ greeting }) => {
   return (
     <div>
       <h1>{greeting}</h1>
-      <center>{loading ? <Loader /> : <ItemList items={products} />}</center>
+
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="row">
+        
+            <ItemList items={products} />
+          
+        </div>
+      )}
     </div>
   );
 };

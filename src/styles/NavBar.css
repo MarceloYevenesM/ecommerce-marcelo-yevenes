@@ -7,13 +7,14 @@
   font-family: "Poppins", sans-serif;
 }
 
-li,
-a,
+
 label {
   font-weight: 200;
   font-size: 20px;
-  color: white;
-  text-decoration: none;
+  cursor: pointer;
+}
+
+.navBar{
   background-color: gray;
 }
 
@@ -37,27 +38,14 @@ header {
   margin-right: 4px;
 }
 
-.navLinks {
-  list-style: none;
-}
-
-.navLinks li {
-  display: inline-block;
-  padding: 0 20px;
-}
-
-.navLinks li label:hover {
-  background-color: honeydew;
-  color: black;
-}
 
 .name {
   text-transform: capitalize;
+  color: white;
+  background-color: gray;
+  
 }
 
-button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
+.marginNav{
+  margin: 10px;
 }

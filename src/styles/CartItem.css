@@ -7,6 +7,11 @@
   padding: 25px;
 }
 
+.cartWidget label{
+  color: white;
+}
+
+
 .alignmentDetails {
   display: flex;
   justify-content: space-between;
@@ -49,3 +54,5 @@
   margin-bottom: 40px;
   float: right;
 }
+
+

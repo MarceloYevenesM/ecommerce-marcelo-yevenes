@@ -8,6 +8,8 @@ import Loader from "./Loader";
 import "../styles/NavBar.css";
 import logo from "../assets/galaktika-logo.png";
 
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
+
 const NavBar = () => {
   const [categorys, setCategorys] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -34,25 +36,30 @@ const NavBar = () => {
   }, []);
 
   return (
-    <header>
-      <NavLink to="/">
-        <div className="nameStore">
-          <img className="logo" src={logo} alt="logo" />
-        </div>
-      </NavLink>
+    <Navbar collapseOnSelect expand="lg" variant="dark" className="navBar">
+      <Container>
+        <NavLink to="/">
+          <div className="nameStore">
+            <img className="logo" src={logo} alt="logo" />
+          </div>
+        </NavLink>
 
-      <nav>
-        <center>
-          {loading ? <Loader /> : <ItemListNavBar categorys={categorys} />}
-        </center>
-      </nav>
-      <NavLink to="/login">
-        <button>Iniciar Sesión</button>
-      </NavLink>
-      <NavLink to="/cart">
-        <CartWidget />
-      </NavLink>
-    </header>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            {loading ? <Loader /> : <ItemListNavBar categorys={categorys} />}
+          </Nav>
+          <Nav>
+            <NavLink to="/login" className="marginNav">
+              <Button variant="light">Iniciar Sesión</Button>{" "}
+            </NavLink>
+            <NavLink to="/cart" className="marginNav">
+              <CartWidget />
+            </NavLink>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 

@@ -16,6 +16,7 @@ import ItemCart from "./ItemCart";
 import "../styles/CartItem.css";
 import alertify from "alertifyjs";
 import Loader from "./Loader";
+import { Button } from "react-bootstrap";
 
 const CartContainer = () => {
   const { cartList, clear, totalPrice } = useCartContext();
@@ -24,15 +25,17 @@ const CartContainer = () => {
   const [idOrden, setIdOrden] = useState(true);
 
   return (
-    <div className="cart">
+    <div className="cart container">
       <h1>Carrito de compras</h1>
       {loading ? (
         <Loader />
       ) : isPurchaseCompleted ? (
         <>
-          <h3>Compra finalizada con exito, su código de compra es el: {idOrden}</h3>
+          <h3>
+            Compra finalizada con exito, su código de compra es el: {idOrden}
+          </h3>
           <Link to="/" className="link">
-            <button>Ir a la Tienda</button>
+            <Button variant="secondary">Ir a la Tienda</Button>
           </Link>
         </>
       ) : cartList.length > 0 ? (
@@ -41,14 +44,15 @@ const CartContainer = () => {
         <center>
           <h2>No hay productos en el carrito</h2>
           <Link to="/" className="link">
-            <button>Ir a la Tienda</button>
+            <Button variant="secondary">Ir a la Tienda</Button>
           </Link>
         </center>
       )}
 
       <div>
         <div className="deleteAll finish">
-          <button
+          <Button
+            variant="primary"
             onClick={() => {
               if (cartList.length === 0) {
                 alertify.warning("No hay elementos en el carro");
@@ -118,10 +122,11 @@ const CartContainer = () => {
             }}
           >
             Finalizar Compra
-          </button>
+          </Button>
         </div>
         <div className="deleteAll clean">
-          <button
+          <Button
+            variant="danger"
             onClick={() => {
               cartList.length === 0
                 ? alertify.warning("No hay elementos que eliminar")
@@ -129,7 +134,7 @@ const CartContainer = () => {
             }}
           >
             Eliminar todo
-          </button>
+          </Button>
         </div>
       </div>
     </div>
