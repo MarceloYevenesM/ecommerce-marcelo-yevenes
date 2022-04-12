@@ -17,19 +17,31 @@ import "../styles/CartItem.css";
 import alertify from "alertifyjs";
 import Loader from "./Loader";
 import { Button } from "react-bootstrap";
+import FormContainer from "./Form";
 
 const CartContainer = () => {
   const { cartList, clear, totalPrice } = useCartContext();
-  const [isPurchaseCompleted, setIsPurchaseCompleted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [idOrden, setIdOrden] = useState(true);
+  const [idOrden, setIdOrden] = useState();
+  const [isReadyToFinish, setIsReadyToFinish] = useState(false);
+  const [dataForm, setDataForm] = useState({
+    name: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    repeatedEmail: "",
+  });
+
+  if (cartList.length === 0 && isReadyToFinish === true) {
+    setIsReadyToFinish(false);
+  }
 
   return (
     <div className="cart container">
       <h1>Carrito de compras</h1>
       {loading ? (
         <Loader />
-      ) : isPurchaseCompleted ? (
+      ) : idOrden ? (
         <>
           <h3>
             Compra finalizada con exito, su código de compra es el: {idOrden}
@@ -39,7 +51,12 @@ const CartContainer = () => {
           </Link>
         </>
       ) : cartList.length > 0 ? (
-        cartList.map((item) => <ItemCart item={item} key={item.id} />)
+        <>
+          {cartList.map((item) => (
+            <ItemCart item={item} key={item.id} />
+          ))}
+          <h4>Precio total: ${totalPrice()}</h4>
+        </>
       ) : (
         <center>
           <h2>No hay productos en el carrito</h2>
@@ -50,6 +67,10 @@ const CartContainer = () => {
       )}
 
       <div>
+        {isReadyToFinish && loading === false && (
+          <FormContainer setDataForm={setDataForm} dataForm={dataForm} />
+        )}
+
         <div className="deleteAll finish">
           <Button
             variant="primary"
@@ -59,18 +80,33 @@ const CartContainer = () => {
                 return;
               }
 
+              if (isReadyToFinish === false) {
+                setIsReadyToFinish(true);
+                return;
+              }
+
+              const { name, lastName, phone, email, repeatedEmail } = dataForm;
+
+              if ([name, lastName, phone, email, repeatedEmail].includes("")) {
+                alertify.error("No pueden existir campos vacíos");
+                return;
+              }
+
+              if (email !== repeatedEmail) {
+                alertify.error("Los mail no coinciden");
+                return;
+              }
+
               setLoading(true);
 
               const finish = {
-                buyer: {
-                  name: "Marcelo",
-                  phone: "973738451",
-                  email: "marcelo.yevenes@gmail.com",
-                },
+                buyer: { name, lastName, phone, email },
                 items: cartList.map((item) => ({
                   id: item.id,
                   title: item.name,
                   price: item.price * item.productQuantity,
+                  quantity: item.productQuantity,
+                  singlePrice: item.price,
                 })),
                 total: totalPrice(),
                 state: true,
@@ -112,11 +148,12 @@ const CartContainer = () => {
                 })
                 .catch((err) => {
                   setLoading(false);
+                  setIsReadyToFinish(false);
                   alertify.error("Algo fallo al al realizar la compra");
                 })
                 .finally(() => {
                   setLoading(false);
-                  setIsPurchaseCompleted(true);
+                  setIsReadyToFinish(false);
                   alertify.success("Compra finalizada con exito");
                 });
             }}
@@ -124,6 +161,7 @@ const CartContainer = () => {
             Finalizar Compra
           </Button>
         </div>
+
         <div className="deleteAll clean">
           <Button
             variant="danger"

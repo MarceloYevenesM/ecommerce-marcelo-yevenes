@@ -1,14 +1,15 @@
+import { useCartContext } from "../context/cartContext";
 import "../styles/CartWidget.css";
 import carrito from "../assets/carrito-de-compras.png";
-import { useCartContext } from "../context/cartContext";
 
+//TODO: cambiar nombre variable carrito
 const CartWidget = () => {
   const { itemsInTheCart } = useCartContext();
   return (
     <div className="cartWidget">
       <img className="carrito" src={carrito} alt="carrito" />
       {itemsInTheCart() === 0 ? (
-        <label></label>
+        <></>
       ) : (
         <label>{itemsInTheCart()}</label>
       )}
