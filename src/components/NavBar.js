@@ -50,9 +50,6 @@ const NavBar = () => {
             {loading ? <Loader /> : <ItemListNavBar categorys={categorys} />}
           </Nav>
           <Nav>
-            <NavLink to="/login" className="marginNav">
-              <Button variant="light">Iniciar Sesión</Button>{" "}
-            </NavLink>
             <NavLink to="/cart" className="marginNav">
               <CartWidget />
             </NavLink>

@@ -14,12 +14,16 @@ const ItemDetailContainer = () => {
     const queryDb = doc(db, "products", id);
 
     getDoc(queryDb)
-      .then((resp) =>
-        setProduct({
-          id: resp.id,
-          ...resp.data(),
-        })
-      )
+      .then((resp) => {
+        if (resp.data() === undefined) {
+          setProduct(false);
+        } else {
+          setProduct({
+            id: resp.id,
+            ...resp.data(),
+          });
+        }
+      })
       .catch((res) => {
         throw console.error(res);
       })
@@ -29,7 +33,15 @@ const ItemDetailContainer = () => {
   }, [id]);
 
   return (
-    <center>{loading ? <Loader /> : <ItemDetail product={product} />} </center>
+    <center>
+      {loading ? (
+        <Loader />
+      ) : product ? (
+        <ItemDetail product={product} />
+      ) : (
+        <h1>No hay productos disponibles con este código</h1>
+      )}
+    </center>
   );
 };
 

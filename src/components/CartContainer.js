@@ -88,7 +88,7 @@ const CartContainer = () => {
               const { name, lastName, phone, email, repeatedEmail } = dataForm;
 
               if ([name, lastName, phone, email, repeatedEmail].includes("")) {
-                alertify.error("No pueden existir campos vacíos");
+                alertify.error("No pueden existir campos vacíos en el formulario");
                 return;
               }
 
@@ -109,7 +109,7 @@ const CartContainer = () => {
                   singlePrice: item.price,
                 })),
                 total: totalPrice(),
-                state: true,
+                state: "generada",
                 date: Timestamp.fromDate(new Date()),
               };
 
