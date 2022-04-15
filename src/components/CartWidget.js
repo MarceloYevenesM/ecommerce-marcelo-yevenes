@@ -2,7 +2,7 @@ import { useCartContext } from "../context/cartContext";
 import "../styles/CartWidget.css";
 import shoppingCart from "../assets/carrito-de-compras.png";
 
-//TODO: cambiar nombre variable carrito
+
 const CartWidget = () => {
   const { itemsInTheCart } = useCartContext();
   return (
