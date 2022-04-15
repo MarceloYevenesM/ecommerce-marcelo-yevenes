@@ -1,4 +1,3 @@
-
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
@@ -7,12 +6,11 @@ const firebaseConfig = {
   projectId: "ecommerce-galaktika",
   storageBucket: "ecommerce-galaktika.appspot.com",
   messagingSenderId: "541140325975",
-  appId: "1:541140325975:web:b3eca1faebac443f5a7512"
+  appId: "1:541140325975:web:b3eca1faebac443f5a7512",
 };
-
 
 const app = initializeApp(firebaseConfig);
 
-export default function getFirestoreApp(){
-    return app
+export default function getFirestoreApp() {
+  return app;
 }

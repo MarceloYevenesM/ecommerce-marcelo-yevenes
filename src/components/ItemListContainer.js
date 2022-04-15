@@ -8,7 +8,6 @@ import {
   where,
 } from "firebase/firestore";
 import ItemList from "./ItemList";
-
 import Loader from "./Loader";
 
 const ItemListContainer = ({ greeting }) => {
@@ -20,44 +19,25 @@ const ItemListContainer = ({ greeting }) => {
     const db = getFirestore();
     const queryColection = collection(db, "products");
 
-    if (categoryId) {
-      const queyFilter = query(
-        queryColection,
-        where("category", "==", categoryId)
-      );
+    const queyFilter = categoryId
+      ? query(queryColection, where("category", "==", categoryId))
+      : collection(db, "products");
 
-      getDocs(queyFilter)
-        .then((resp) =>
-          setProducts(
-            resp.docs.map((product) => ({
-              id: product.id,
-              ...product.data(),
-            }))
-          )
+    getDocs(queyFilter)
+      .then((resp) =>
+        setProducts(
+          resp.docs.map((product) => ({
+            id: product.id,
+            ...product.data(),
+          }))
         )
-        .catch((res) => {
-          throw console.error(res);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    } else {
-      getDocs(queryColection)
-        .then((resp) =>
-          setProducts(
-            resp.docs.map((product) => ({
-              id: product.id,
-              ...product.data(),
-            }))
-          )
-        )
-        .catch((res) => {
-          throw console.error(res);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    }
+      )
+      .catch((res) => {
+        throw console.error(res);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [categoryId]);
 
   return (
@@ -68,9 +48,7 @@ const ItemListContainer = ({ greeting }) => {
         <Loader />
       ) : (
         <div className="row">
-        
-            <ItemList items={products} />
-          
+          <ItemList items={products} />
         </div>
       )}
     </div>

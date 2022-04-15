@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ItemCount } from "./ItemCount";
-import "../styles/Item.css";
-import { useCartContext } from "../context/cartContext";
 import { Button, Card } from "react-bootstrap";
+import { ItemCount } from "./ItemCount";
+import { useCartContext } from "../context/cartContext";
+import "../styles/Item.css";
 
 export const ItemDetail = ({ product }) => {
   const { name, img, description, price, totalStock, id, category } = product;
@@ -18,7 +18,6 @@ export const ItemDetail = ({ product }) => {
   };
 
   return (
-    
     <Card className="col-12 col-md-6 col-lg-4 col-xl-5 marginCard">
       <Card.Title>Detalle de {name}</Card.Title>
       <Card.Subtitle>Categoria: {category}</Card.Subtitle>
@@ -38,11 +37,12 @@ export const ItemDetail = ({ product }) => {
           />
         ) : (
           <Link to="/cart" className="link">
-            <Button variant="secondary" className="addCart">Finalizar compra</Button>
+            <Button variant="secondary" className="addCart">
+              Finalizar compra
+            </Button>
           </Link>
         )}
       </Card.Body>
     </Card>
   );
 };
-

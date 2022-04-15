@@ -1,7 +1,7 @@
-import alertify from "alertifyjs";
-import "alertifyjs/build/css/alertify.css";
 import { useState } from "react";
+import alertify from "alertifyjs";
 import { Button } from "react-bootstrap";
+import "alertifyjs/build/css/alertify.css";
 import "../styles/ItemCount.css";
 
 export const ItemCount = ({ initialAmount, totalStock, onAdd }) => {

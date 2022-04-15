@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import CartWidget from "./CartWidget";
 import ItemListNavBar from "./ItemListNavBar";
 import Loader from "./Loader";
-
 import "../styles/NavBar.css";
 import logo from "../assets/galaktika-logo.png";
-
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
 
 const NavBar = () => {
   const [categorys, setCategorys] = useState([]);

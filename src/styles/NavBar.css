@@ -7,22 +7,13 @@
   font-family: "Poppins", sans-serif;
 }
 
-
 label {
   font-weight: 200;
   font-size: 20px;
   cursor: pointer;
 }
 
-.navBar{
-  background-color: gray;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px;
+.navBar {
   background-color: gray;
 }
 
@@ -38,14 +29,12 @@ header {
   margin-right: 4px;
 }
 
-
 .name {
   text-transform: capitalize;
   color: white;
   background-color: gray;
-  
 }
 
-.marginNav{
+.marginNav {
   margin: 10px;
 }
