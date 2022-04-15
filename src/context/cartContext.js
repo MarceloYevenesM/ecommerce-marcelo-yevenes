@@ -40,7 +40,6 @@ const CartContextProvider = ({ children }) => {
 
   const clear = () => {
     setCartList([]);
-    alertify.error("Carrito vaciado correctamente");
   };
 
   const isInCart = (itemId) => {
