@@ -14,7 +14,7 @@ Se incluyeron las siguientes dependencias:
 | Firebase | 9.6.9 | https://www.npmjs.com/package/firebase |
 | React Router | 6.2.2 | https://www.npmjs.com/package/react-router |
 
-### Dependencias
+### Justificación Dependencias
 
 Justificación para el uso de cada libreria
 * Alertifyjs: Permite mostrar diferentes alertas flotantes temporales para distintos mensajes, permitiendo mostrar mensajes de alerta de exito, error u otro de manera sencilla y rápida. 
@@ -27,4 +27,4 @@ Justificación para el uso de cada libreria
 ![navegacion](https://user-images.githubusercontent.com/93208325/157936308-b7654078-56db-4a29-acbb-32e04fa674de.gif)
 
 ## Demo 
-
+https://statuesque-wisp-a9be3e.netlify.app/
