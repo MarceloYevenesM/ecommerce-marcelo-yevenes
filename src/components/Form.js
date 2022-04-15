@@ -50,9 +50,6 @@ const FormContainer = ({ setDataForm, dataForm }) => {
             name="email"
             onChange={handleChange}
           />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -63,9 +60,6 @@ const FormContainer = ({ setDataForm, dataForm }) => {
             onChange={handleChange}
             name="repeatedEmail"
           />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
         </Form.Group>
       </Form>
     </>
